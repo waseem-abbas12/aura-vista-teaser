@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="emerald">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,21 +10,89 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
+        /* COLOR THEMES ENGINE */
         :root {
-            --bg-deep: #07090d;
-            --bg-card: rgba(16, 21, 29, 0.78);
-            --bg-card-hover: rgba(22, 29, 40, 0.9);
-            --border-gold: rgba(245, 215, 140, 0.2);
-            --border-hover: rgba(245, 215, 140, 0.55);
-            --gold-primary: #f5d78c;
-            --gold-secondary: #e6b450;
-            --gold-light: #fff5de;
-            --gold-glow: rgba(245, 215, 140, 0.35);
-            --text-main: #f8fafc;
+            /* DEFAULT THEME: EMERALD OBSIDIAN & ROSE GOLD SILK */
+            --bg-deep: #030a08;
+            --bg-card: rgba(6, 20, 16, 0.82);
+            --bg-card-hover: rgba(10, 30, 24, 0.94);
+            --border-accent: rgba(16, 185, 129, 0.25);
+            --border-hover: rgba(52, 211, 153, 0.65);
+            --primary-accent: #10b981;
+            --secondary-accent: #059669;
+            --light-accent: #a7f3d0;
+            --contrast-accent: #fb7185;
+            --glow-accent: rgba(16, 185, 129, 0.4);
+            --text-main: #f0fdf4;
+            --text-muted: #86a397;
+            --gradient-primary: linear-gradient(135deg, #34d399 0%, #10b981 50%, #059669 100%);
+            --gradient-contrast: linear-gradient(135deg, #fb7185 0%, #e11d48 100%);
+            --mesh-color1: rgba(16, 185, 129, 0.12);
+            --mesh-color2: rgba(251, 113, 133, 0.08);
+            --mesh-color3: rgba(52, 211, 153, 0.09);
+        }
+
+        /* THEME 2: SAPPHIRE NOIR & MOLTEN COPPER (Sunset Horizon) */
+        [data-theme="copper"] {
+            --bg-deep: #050813;
+            --bg-card: rgba(10, 15, 30, 0.82);
+            --bg-card-hover: rgba(16, 24, 48, 0.94);
+            --border-accent: rgba(249, 115, 22, 0.3);
+            --border-hover: rgba(251, 146, 60, 0.7);
+            --primary-accent: #f97316;
+            --secondary-accent: #ea580c;
+            --light-accent: #ffedd5;
+            --contrast-accent: #38bdf8;
+            --glow-accent: rgba(249, 115, 22, 0.45);
+            --text-main: #fff7ed;
             --text-muted: #94a3b8;
-            --accent-cyan: #38bdf8;
-            --accent-emerald: #10b981;
-            --glass-blur: 16px;
+            --gradient-primary: linear-gradient(135deg, #fdba74 0%, #f97316 50%, #c2410c 100%);
+            --gradient-contrast: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+            --mesh-color1: rgba(249, 115, 22, 0.14);
+            --mesh-color2: rgba(56, 189, 248, 0.1);
+            --mesh-color3: rgba(234, 88, 12, 0.08);
+        }
+
+        /* THEME 3: ROYAL AMETHYST & SILK BLUSH (Haute Couture) */
+        [data-theme="amethyst"] {
+            --bg-deep: #09040f;
+            --bg-card: rgba(18, 10, 28, 0.82);
+            --bg-card-hover: rgba(28, 16, 44, 0.94);
+            --border-accent: rgba(192, 132, 252, 0.3);
+            --border-hover: rgba(216, 180, 254, 0.7);
+            --primary-accent: #c084fc;
+            --secondary-accent: #9333ea;
+            --light-accent: #f3e8ff;
+            --contrast-accent: #fb7185;
+            --glow-accent: rgba(192, 132, 252, 0.45);
+            --text-main: #faf5ff;
+            --text-muted: #a89cb5;
+            --gradient-primary: linear-gradient(135deg, #e9d5ff 0%, #c084fc 50%, #7e22ce 100%);
+            --gradient-contrast: linear-gradient(135deg, #fb7185 0%, #db2777 100%);
+            --mesh-color1: rgba(192, 132, 252, 0.15);
+            --mesh-color2: rgba(251, 113, 133, 0.1);
+            --mesh-color3: rgba(147, 51, 234, 0.08);
+        }
+
+        /* THEME 4: CYBER GLACIER & ELECTRIC CYAN (Ultra-Modern Minimalist) */
+        [data-theme="glacier"] {
+            --bg-deep: #04080e;
+            --bg-card: rgba(8, 18, 30, 0.82);
+            --bg-card-hover: rgba(14, 28, 46, 0.94);
+            --border-accent: rgba(6, 182, 212, 0.3);
+            --border-hover: rgba(34, 211, 238, 0.75);
+            --primary-accent: #06b6d4;
+            --secondary-accent: #0891b2;
+            --light-accent: #cffafe;
+            --contrast-accent: #a855f7;
+            --glow-accent: rgba(6, 182, 212, 0.45);
+            --text-main: #ecfeff;
+            --text-muted: #839ea8;
+            --gradient-primary: linear-gradient(135deg, #a5f3fc 0%, #06b6d4 50%, #0e7490 100%);
+            --gradient-contrast: linear-gradient(135deg, #c084fc 0%, #7e22ce 100%);
+            --mesh-color1: rgba(6, 182, 212, 0.15);
+            --mesh-color2: rgba(168, 85, 247, 0.09);
+            --mesh-color3: rgba(8, 145, 178, 0.08);
         }
 
         * {
@@ -33,6 +101,7 @@
             box-sizing: border-box;
             -webkit-font-smoothing: antialiased;
             scroll-behavior: smooth;
+            transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
         }
 
         body {
@@ -44,13 +113,13 @@
             line-height: 1.6;
         }
 
-        /* Ambient Background Canvas & Glows */
+        /* Canvas & Ambient Meshes */
         #bgCanvas, #confettiCanvas {
             position: fixed;
             inset: 0;
             pointer-events: none;
         }
-        #bgCanvas { z-index: 0; opacity: 0.6; }
+        #bgCanvas { z-index: 0; opacity: 0.65; }
         #confettiCanvas { z-index: 9999; }
 
         .ambient-mesh {
@@ -59,10 +128,11 @@
             pointer-events: none;
             z-index: 1;
             background: 
-                radial-gradient(circle at 12% 18%, rgba(245, 215, 140, 0.07) 0%, transparent 45%),
-                radial-gradient(circle at 88% 25%, rgba(56, 189, 248, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 50% 75%, rgba(230, 180, 80, 0.06) 0%, transparent 60%);
+                radial-gradient(circle at 14% 18%, var(--mesh-color1) 0%, transparent 45%),
+                radial-gradient(circle at 86% 24%, var(--mesh-color2) 0%, transparent 50%),
+                radial-gradient(circle at 50% 75%, var(--mesh-color3) 0%, transparent 60%);
             mix-blend-mode: screen;
+            transition: all 0.5s ease;
         }
 
         .grid-overlay {
@@ -77,7 +147,7 @@
             -webkit-mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 85%);
         }
 
-        /* Global Typography & Utilities */
+        /* Typography */
         h1, h2, h3, h4, .font-serif {
             font-family: 'Cinzel', serif;
             letter-spacing: -0.01em;
@@ -92,6 +162,8 @@
         .section-padding {
             padding: 6.5rem 0;
         }
+
+        /* Badges & Titles */
         .badge-pill {
             display: inline-flex;
             align-items: center;
@@ -100,9 +172,9 @@
             font-weight: 700;
             letter-spacing: 0.22em;
             text-transform: uppercase;
-            color: var(--gold-light);
-            background: linear-gradient(135deg, rgba(245, 215, 140, 0.14), rgba(245, 215, 140, 0.02));
-            border: 1px solid rgba(245, 215, 140, 0.32);
+            color: var(--light-accent);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.01));
+            border: 1px solid var(--border-accent);
             padding: 0.5rem 1.4rem;
             border-radius: 999px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -112,7 +184,7 @@
             font-size: clamp(2rem, 4vw, 3.2rem);
             font-weight: 800;
             line-height: 1.2;
-            background: linear-gradient(135deg, #ffffff 0%, #fdf8ed 50%, #e6cb91 100%);
+            background: linear-gradient(135deg, #ffffff 0%, var(--light-accent) 60%, var(--primary-accent) 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -145,28 +217,87 @@
             border: none;
         }
         .btn-gold {
-            background: linear-gradient(135deg, #f5d78c 0%, #e6b450 100%);
-            color: #0b0d10;
-            box-shadow: 0 10px 25px -5px rgba(245, 215, 140, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+            background: var(--gradient-primary);
+            color: #030806;
+            box-shadow: 0 10px 25px -5px var(--glow-accent), inset 0 0 0 1px rgba(255, 255, 255, 0.35);
         }
         .btn-gold:hover {
-            background: linear-gradient(135deg, #fff2ce 0%, #f0c058 100%);
             transform: translateY(-2px);
-            box-shadow: 0 14px 30px -4px rgba(245, 215, 140, 0.5);
+            box-shadow: 0 16px 35px -4px var(--glow-accent);
+            filter: brightness(1.1);
         }
         .btn-glass {
             background: rgba(255, 255, 255, 0.05);
             color: #f1f5f9;
-            border: 1px solid var(--border-gold);
+            border: 1px solid var(--border-accent);
             backdrop-filter: blur(8px);
         }
         .btn-glass:hover {
-            background: rgba(245, 215, 140, 0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-color: var(--border-hover);
             color: #ffffff;
             transform: translateY(-2px);
         }
         .btn:active { transform: scale(0.97); }
+
+        /* THEME PALETTE PICKER UI */
+        .theme-selector-pill {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-accent);
+            border-radius: 999px;
+            padding: 0.3rem 0.6rem;
+            gap: 0.4rem;
+        }
+        .theme-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.25s ease;
+            position: relative;
+        }
+        .theme-dot:hover {
+            transform: scale(1.2);
+        }
+        .theme-dot.active {
+            border-color: #ffffff;
+            box-shadow: 0 0 10px #ffffff;
+            transform: scale(1.15);
+        }
+        .dot-emerald { background: linear-gradient(135deg, #10b981, #059669); }
+        .dot-copper { background: linear-gradient(135deg, #f97316, #ea580c); }
+        .dot-amethyst { background: linear-gradient(135deg, #c084fc, #9333ea); }
+        .dot-glacier { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+
+        /* Floating Palette Switcher */
+        .floating-palette-bar {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            background: rgba(10, 15, 20, 0.85);
+            backdrop-filter: blur(14px);
+            border: 1px solid var(--border-accent);
+            padding: 0.6rem 1rem;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+        }
+        .palette-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--light-accent);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
 
         /* HEADER & NAVIGATION */
         header.site-header {
@@ -175,10 +306,10 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(7, 9, 13, 0.82);
+            background: rgba(4, 10, 8, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(245, 215, 140, 0.12);
+            border-bottom: 1px solid var(--border-accent);
             transition: all 0.3s ease;
         }
         .nav-inner {
@@ -197,17 +328,17 @@
             width: 42px;
             height: 42px;
             border-radius: 12px;
-            border: 1px solid var(--border-gold);
-            background: linear-gradient(135deg, rgba(245, 215, 140, 0.18), rgba(245, 215, 140, 0.02));
+            border: 1px solid var(--border-accent);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.02));
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 18px rgba(245, 215, 140, 0.15);
+            box-shadow: 0 0 18px var(--glow-accent);
         }
         .brand-mark svg {
             width: 22px;
             height: 22px;
-            fill: var(--gold-primary);
+            fill: var(--primary-accent);
         }
         .brand-text { display: flex; flex-direction: column; }
         .brand-name {
@@ -220,7 +351,7 @@
         .brand-tag {
             font-size: 0.62rem;
             letter-spacing: 0.28em;
-            color: var(--gold-primary);
+            color: var(--primary-accent);
             text-transform: uppercase;
         }
 
@@ -231,7 +362,7 @@
             list-style: none;
         }
         .nav-links a {
-            color: #cbd5e1;
+            color: var(--text-muted);
             text-decoration: none;
             font-size: 0.86rem;
             font-weight: 500;
@@ -239,7 +370,7 @@
             position: relative;
         }
         .nav-links a:hover {
-            color: var(--gold-primary);
+            color: var(--primary-accent);
         }
         .nav-links a::after {
             content: '';
@@ -248,7 +379,7 @@
             left: 0;
             width: 0%;
             height: 1.5px;
-            background: var(--gold-primary);
+            background: var(--primary-accent);
             transition: width 0.25s ease;
         }
         .nav-links a:hover::after { width: 100%; }
@@ -256,12 +387,12 @@
         .nav-controls {
             display: flex;
             align-items: center;
-            gap: 0.9rem;
+            gap: 0.8rem;
         }
         .currency-select {
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-gold);
-            color: var(--gold-light);
+            border: 1px solid var(--border-accent);
+            color: var(--light-accent);
             border-radius: 20px;
             padding: 0.4rem 0.8rem;
             font-size: 0.8rem;
@@ -270,13 +401,13 @@
             outline: none;
         }
         .currency-select option {
-            background: #0f131a;
+            background: #091210;
             color: #ffffff;
         }
         .audio-toggle-btn {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.12);
-            color: var(--gold-primary);
+            color: var(--primary-accent);
             width: 38px;
             height: 38px;
             border-radius: 50%;
@@ -287,19 +418,11 @@
             transition: all 0.25s ease;
         }
         .audio-toggle-btn:hover {
-            border-color: var(--gold-primary);
-            box-shadow: 0 0 12px var(--gold-glow);
-        }
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: #ffffff;
-            cursor: pointer;
-            font-size: 1.5rem;
+            border-color: var(--primary-accent);
+            box-shadow: 0 0 12px var(--glow-accent);
         }
 
-        /* HERO & LIVE COUNTDOWN SECTION */
+        /* HERO & COUNTDOWN */
         .hero-section {
             padding-top: 10.5rem;
             padding-bottom: 5.5rem;
@@ -308,12 +431,12 @@
         }
         .hero-card {
             background: var(--bg-card);
-            backdrop-filter: blur(var(--glass-blur));
-            -webkit-backdrop-filter: blur(var(--glass-blur));
-            border: 1px solid var(--border-gold);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid var(--border-accent);
             border-radius: 3rem;
             padding: 4rem 3rem 3.5rem;
-            box-shadow: 0 35px 80px -15px rgba(0, 0, 0, 0.88), 0 0 60px rgba(245, 215, 140, 0.06);
+            box-shadow: 0 35px 80px -15px rgba(0, 0, 0, 0.9), 0 0 60px var(--glow-accent);
             position: relative;
             overflow: hidden;
             transition: transform 0.3s ease;
@@ -324,14 +447,14 @@
             top: 0;
             left: -50%;
             width: 200%;
-            height: 1.5px;
-            background: linear-gradient(90deg, transparent, rgba(245, 215, 140, 0.9), transparent);
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-accent), transparent);
             animation: scanline 8s ease-in-out infinite;
         }
         @keyframes scanline {
-            0% { transform: translateX(-40%); opacity: 0.3; }
+            0% { transform: translateX(-40%); opacity: 0.2; }
             50% { transform: translateX(40%); opacity: 1; }
-            100% { transform: translateX(-40%); opacity: 0.3; }
+            100% { transform: translateX(-40%); opacity: 0.2; }
         }
 
         h1.hero-headline {
@@ -339,7 +462,7 @@
             font-weight: 800;
             line-height: 1.1;
             letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #ffffff 0%, #fef4dd 45%, #e0bd75 100%);
+            background: linear-gradient(135deg, #ffffff 0%, var(--light-accent) 50%, var(--primary-accent) 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -348,14 +471,14 @@
         .hero-sub {
             font-size: clamp(1.05rem, 2vw, 1.25rem);
             font-weight: 300;
-            color: #cbd5e1;
+            color: #d1d5db;
             max-width: 680px;
             margin: 0 auto 2.6rem;
             line-height: 1.7;
         }
-        .hero-sub strong { color: var(--gold-primary); font-weight: 600; }
+        .hero-sub strong { color: var(--primary-accent); font-weight: 600; }
 
-        /* CIRCULAR SVG COUNTDOWN */
+        /* COUNTDOWN GRID */
         .countdown-grid {
             display: flex;
             justify-content: center;
@@ -372,16 +495,16 @@
             justify-content: center;
             width: clamp(100px, 18vw, 150px);
             height: clamp(100px, 18vw, 150px);
-            background: rgba(11, 14, 20, 0.85);
+            background: rgba(5, 12, 10, 0.85);
             border-radius: 28px;
-            border: 1px solid rgba(245, 215, 140, 0.18);
-            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-accent);
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.6);
             transition: all 0.3s ease;
         }
         .countdown-node:hover {
             transform: translateY(-5px);
             border-color: var(--border-hover);
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 25px rgba(245, 215, 140, 0.18);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), 0 0 25px var(--glow-accent);
         }
         .circle-svg {
             position: absolute;
@@ -398,7 +521,7 @@
         }
         .circle-bar {
             fill: none;
-            stroke: url(#goldGradient);
+            stroke: url(#themeGradient);
             stroke-width: 3.5;
             stroke-linecap: round;
             stroke-dasharray: 340;
@@ -410,7 +533,7 @@
             font-size: clamp(2rem, 5.2vw, 3.2rem);
             font-weight: 700;
             line-height: 1;
-            background: linear-gradient(180deg, #ffffff 20%, #edd8b0 100%);
+            background: linear-gradient(180deg, #ffffff 20%, var(--light-accent) 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -421,24 +544,25 @@
             font-weight: 700;
             letter-spacing: 0.24em;
             text-transform: uppercase;
-            color: var(--gold-primary);
+            color: var(--primary-accent);
             margin-top: 0.4rem;
             z-index: 2;
         }
         .time-sep {
             font-family: 'Cinzel', serif;
             font-size: clamp(1.8rem, 4vw, 2.5rem);
-            color: rgba(245, 215, 140, 0.4);
+            color: var(--primary-accent);
+            opacity: 0.6;
             animation: pulseColon 2s infinite;
         }
         @keyframes pulseColon { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.95; } }
 
-        /* LIVE HYPE METER */
+        /* HYPE METER */
         .hype-panel {
             max-width: 520px;
             margin: 2rem auto 2.5rem;
-            background: rgba(255, 255, 255, 0.025);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-accent);
             border-radius: 20px;
             padding: 1.3rem 1.8rem;
             backdrop-filter: blur(10px);
@@ -463,10 +587,10 @@
         }
         .hype-meter-fill {
             height: 100%;
-            width: 86%;
-            background: linear-gradient(90deg, #d99a2f 0%, #f5d78c 50%, #fff3d1 100%);
+            width: 88%;
+            background: var(--gradient-primary);
             border-radius: 99px;
-            box-shadow: 0 0 18px rgba(245, 215, 140, 0.7);
+            box-shadow: 0 0 18px var(--glow-accent);
             transition: width 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
             position: relative;
         }
@@ -483,7 +607,7 @@
             display: flex;
             justify-content: space-between;
             font-size: 0.72rem;
-            color: #64748b;
+            color: var(--text-muted);
             margin-top: 0.6rem;
         }
 
@@ -495,15 +619,14 @@
             flex-wrap: wrap;
         }
         .btn-hype {
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.35);
-            color: #fca5a5;
+            background: rgba(251, 113, 133, 0.12);
+            border: 1px solid var(--contrast-accent);
+            color: #fecdd3;
         }
         .btn-hype:hover {
-            background: rgba(239, 68, 68, 0.2);
-            border-color: rgba(239, 68, 68, 0.7);
+            background: rgba(251, 113, 133, 0.25);
             color: #ffffff;
-            box-shadow: 0 0 25px rgba(239, 68, 68, 0.3);
+            box-shadow: 0 0 25px rgba(251, 113, 133, 0.4);
             transform: translateY(-2px);
         }
 
@@ -522,9 +645,9 @@
         /* METRICS / STATS BAR */
         .stats-section {
             padding: 3.5rem 0;
-            border-top: 1px solid rgba(245, 215, 140, 0.1);
-            border-bottom: 1px solid rgba(245, 215, 140, 0.1);
-            background: rgba(12, 16, 23, 0.5);
+            border-top: 1px solid var(--border-accent);
+            border-bottom: 1px solid var(--border-accent);
+            background: rgba(5, 15, 12, 0.5);
         }
         .stats-grid {
             display: grid;
@@ -541,7 +664,7 @@
             font-family: 'Cinzel', serif;
             font-size: 2.8rem;
             font-weight: 800;
-            color: var(--gold-primary);
+            color: var(--primary-accent);
             line-height: 1;
             margin-bottom: 0.5rem;
         }
@@ -553,14 +676,14 @@
             color: var(--text-muted);
         }
 
-        /* RESIDENCES & INTERACTIVE FLOOR PLAN STUDIO */
+        /* RESIDENCES & FLOOR PLANS */
         .residences-section {
             text-align: center;
         }
         .plan-tabs {
             display: inline-flex;
             background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(245, 215, 140, 0.2);
+            border: 1px solid var(--border-accent);
             border-radius: 999px;
             padding: 0.4rem;
             margin-bottom: 3.5rem;
@@ -571,7 +694,7 @@
         .plan-tab-btn {
             background: transparent;
             border: none;
-            color: #94a3b8;
+            color: var(--text-muted);
             padding: 0.75rem 1.8rem;
             font-family: inherit;
             font-size: 0.88rem;
@@ -581,15 +704,15 @@
             transition: all 0.25s ease;
         }
         .plan-tab-btn.active {
-            background: linear-gradient(135deg, #f5d78c 0%, #e6b450 100%);
-            color: #07090d;
-            box-shadow: 0 4px 20px rgba(245, 215, 140, 0.3);
+            background: var(--gradient-primary);
+            color: #030806;
+            box-shadow: 0 4px 20px var(--glow-accent);
             font-weight: 700;
         }
 
         .studio-card {
             background: var(--bg-card);
-            border: 1px solid var(--border-gold);
+            border: 1px solid var(--border-accent);
             border-radius: 2.5rem;
             padding: 3rem;
             display: grid;
@@ -601,8 +724,8 @@
         }
         .plan-visual-wrap {
             position: relative;
-            background: rgba(9, 12, 18, 0.9);
-            border: 1px dashed rgba(245, 215, 140, 0.3);
+            background: rgba(3, 10, 8, 0.9);
+            border: 1px dashed var(--border-accent);
             border-radius: 24px;
             padding: 2rem;
             min-height: 420px;
@@ -617,7 +740,6 @@
             max-height: 380px;
         }
 
-        /* Interactive Blueprint Hotspot */
         .hotspot-dot {
             cursor: pointer;
             transition: all 0.3s ease;
@@ -631,7 +753,7 @@
         }
         .hotspot-dot:hover circle.inner {
             fill: #ffffff;
-            filter: drop-shadow(0 0 8px #f5d78c);
+            filter: drop-shadow(0 0 8px var(--primary-accent));
         }
 
         .plan-info-box {
@@ -649,7 +771,7 @@
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--gold-primary);
+            color: var(--primary-accent);
             margin-bottom: 1.5rem;
             display: flex;
             align-items: baseline;
@@ -684,8 +806,8 @@
         }
 
         .hotspot-tooltip {
-            background: rgba(15, 20, 28, 0.95);
-            border: 1px solid var(--border-gold);
+            background: rgba(10, 20, 16, 0.95);
+            border: 1px solid var(--border-accent);
             padding: 0.8rem 1.2rem;
             border-radius: 12px;
             font-size: 0.82rem;
@@ -695,9 +817,9 @@
             display: none;
         }
 
-        /* AMENITIES SHOWCASE */
+        /* AMENITIES */
         .amenities-section {
-            background: rgba(10, 13, 19, 0.4);
+            background: rgba(5, 12, 10, 0.4);
             text-align: center;
         }
         .amenities-grid {
@@ -707,7 +829,7 @@
         }
         .amenity-card {
             background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-accent);
             border-radius: 24px;
             padding: 2.2rem 1.8rem;
             text-align: left;
@@ -716,34 +838,23 @@
             transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
             cursor: pointer;
         }
-        .amenity-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 24px;
-            border: 1px solid transparent;
-            transition: border-color 0.3s ease;
-            pointer-events: none;
-        }
         .amenity-card:hover {
             transform: translateY(-6px);
             background: var(--bg-card-hover);
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 25px rgba(245, 215, 140, 0.1);
-        }
-        .amenity-card:hover::after {
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 25px var(--glow-accent);
             border-color: var(--border-hover);
         }
         .amenity-icon-box {
             width: 54px;
             height: 54px;
             border-radius: 16px;
-            background: rgba(245, 215, 140, 0.09);
-            border: 1px solid rgba(245, 215, 140, 0.25);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-accent);
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 1.4rem;
-            color: var(--gold-primary);
+            color: var(--primary-accent);
         }
         .amenity-title {
             font-size: 1.25rem;
@@ -757,7 +868,7 @@
             line-height: 1.6;
         }
 
-        /* GALLERY & SNEAK PEEK */
+        /* GALLERY */
         .gallery-section {
             text-align: center;
         }
@@ -781,8 +892,8 @@
         }
         .filter-btn.active, .filter-btn:hover {
             color: #ffffff;
-            border-color: var(--gold-primary);
-            background: rgba(245, 215, 140, 0.1);
+            border-color: var(--primary-accent);
+            background: rgba(255, 255, 255, 0.08);
         }
         .gallery-grid {
             display: grid;
@@ -794,7 +905,7 @@
             height: 280px;
             border-radius: 22px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-accent);
             cursor: pointer;
             transition: transform 0.3s ease;
         }
@@ -815,7 +926,7 @@
         .gallery-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, transparent 40%, rgba(7, 9, 13, 0.95) 100%);
+            background: linear-gradient(180deg, transparent 40%, rgba(4, 10, 8, 0.95) 100%);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -828,9 +939,9 @@
             font-weight: 700;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            background: rgba(245, 215, 140, 0.18);
-            border: 1px solid rgba(245, 215, 140, 0.3);
-            color: var(--gold-primary);
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid var(--border-accent);
+            color: var(--light-accent);
             padding: 0.25rem 0.6rem;
             border-radius: 999px;
             margin-bottom: 0.4rem;
@@ -841,14 +952,14 @@
             color: #ffffff;
         }
 
-        /* STRATEGIC CONNECTIVITY & LOCATION */
+        /* LOCATION */
         .location-section {
-            background: rgba(12, 16, 23, 0.4);
+            background: rgba(5, 12, 10, 0.4);
             text-align: center;
         }
         .location-card {
             background: var(--bg-card);
-            border: 1px solid var(--border-gold);
+            border: 1px solid var(--border-accent);
             border-radius: 2.5rem;
             padding: 3rem;
             display: grid;
@@ -875,7 +986,7 @@
         }
         .commute-item:hover {
             border-color: var(--border-hover);
-            background: rgba(245, 215, 140, 0.05);
+            background: rgba(255, 255, 255, 0.06);
             transform: translateX(4px);
         }
         .commute-left {
@@ -887,15 +998,15 @@
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1rem;
             font-weight: 700;
-            color: var(--gold-primary);
-            background: rgba(245, 215, 140, 0.12);
+            color: var(--primary-accent);
+            background: rgba(255, 255, 255, 0.08);
             padding: 0.3rem 0.8rem;
             border-radius: 8px;
         }
 
         .map-interactive-view {
-            background: #090d14;
-            border: 1px solid rgba(245, 215, 140, 0.25);
+            background: #020705;
+            border: 1px solid var(--border-accent);
             border-radius: 20px;
             height: 380px;
             position: relative;
@@ -909,7 +1020,7 @@
             width: 280px;
             height: 280px;
             border-radius: 50%;
-            border: 1px solid rgba(245, 215, 140, 0.2);
+            border: 1px solid var(--border-accent);
             animation: radarPulse 4s infinite linear;
         }
         @keyframes radarPulse {
@@ -926,14 +1037,14 @@
         .pin-beacon {
             width: 18px;
             height: 18px;
-            background: var(--gold-primary);
+            background: var(--primary-accent);
             border-radius: 50%;
-            box-shadow: 0 0 25px var(--gold-primary);
+            box-shadow: 0 0 25px var(--primary-accent);
         }
         .pin-badge {
             background: #000000;
-            border: 1px solid var(--gold-primary);
-            color: var(--gold-primary);
+            border: 1px solid var(--primary-accent);
+            color: var(--primary-accent);
             font-size: 0.72rem;
             font-weight: 800;
             padding: 0.3rem 0.7rem;
@@ -942,13 +1053,13 @@
             white-space: nowrap;
         }
 
-        /* INVESTMENT CALCULATOR & ROI SIMULATOR */
+        /* CALCULATOR */
         .calculator-section {
             text-align: center;
         }
         .calc-box {
             background: var(--bg-card);
-            border: 1px solid var(--border-gold);
+            border: 1px solid var(--border-accent);
             border-radius: 2.5rem;
             padding: 3.5rem;
             max-width: 900px;
@@ -967,18 +1078,18 @@
             justify-content: space-between;
             font-size: 0.85rem;
             font-weight: 600;
-            color: #cbd5e1;
+            color: #d1d5db;
             margin-bottom: 0.6rem;
         }
         .slider-input {
             width: 100%;
-            accent-color: var(--gold-primary);
+            accent-color: var(--primary-accent);
             cursor: pointer;
         }
 
         .calc-result-panel {
-            background: rgba(10, 13, 19, 0.8);
-            border: 1px solid rgba(245, 215, 140, 0.2);
+            background: rgba(3, 8, 6, 0.8);
+            border: 1px solid var(--border-accent);
             border-radius: 20px;
             padding: 2.2rem;
             display: flex;
@@ -1001,17 +1112,17 @@
             font-weight: 700;
             color: #ffffff;
         }
-        .res-value.gold { color: var(--gold-primary); }
-        .res-value.green { color: #34d399; }
+        .res-value.accent { color: var(--primary-accent); }
+        .res-value.green { color: var(--contrast-accent); }
 
-        /* VIP REGISTRATION SECTION */
+        /* VIP REGISTRATION */
         .vip-section {
             text-align: center;
-            background: radial-gradient(circle at 50% 50%, rgba(245, 215, 140, 0.08) 0%, transparent 70%);
+            background: radial-gradient(circle at 50% 50%, var(--mesh-color1) 0%, transparent 70%);
         }
         .vip-form-box {
             background: var(--bg-card);
-            border: 1px solid var(--border-gold);
+            border: 1px solid var(--border-accent);
             border-radius: 2.5rem;
             padding: 3.5rem 3rem;
             max-width: 680px;
@@ -1038,7 +1149,7 @@
             font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: #cbd5e1;
+            color: #d1d5db;
         }
         .input-control, .select-control {
             width: 100%;
@@ -1053,12 +1164,12 @@
         }
         .input-control:focus, .select-control:focus {
             outline: none;
-            border-color: var(--gold-primary);
-            box-shadow: 0 0 15px rgba(245, 215, 140, 0.25);
+            border-color: var(--primary-accent);
+            box-shadow: 0 0 15px var(--glow-accent);
             background: rgba(255, 255, 255, 0.07);
         }
         .select-control option {
-            background: #0f131a;
+            background: #050d0a;
             color: #ffffff;
         }
         .agreement-checkbox {
@@ -1066,12 +1177,12 @@
             align-items: center;
             gap: 0.7rem;
             font-size: 0.8rem;
-            color: #94a3b8;
+            color: var(--text-muted);
             margin: 1.4rem 0 1.8rem;
             cursor: pointer;
         }
         .agreement-checkbox input {
-            accent-color: var(--gold-primary);
+            accent-color: var(--primary-accent);
             width: 17px;
             height: 17px;
         }
@@ -1090,7 +1201,7 @@
         }
         .faq-item {
             background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-accent);
             border-radius: 18px;
             overflow: hidden;
             transition: border-color 0.2s ease;
@@ -1113,7 +1224,7 @@
         }
         .faq-icon {
             font-size: 1.2rem;
-            color: var(--gold-primary);
+            color: var(--primary-accent);
             transition: transform 0.3s ease;
         }
         .faq-item.active .faq-icon {
@@ -1134,8 +1245,8 @@
 
         /* FOOTER */
         footer.site-footer {
-            background: #050609;
-            border-top: 1px solid rgba(245, 215, 140, 0.12);
+            background: #020604;
+            border-top: 1px solid var(--border-accent);
             padding: 5rem 0 2.5rem;
             position: relative;
             z-index: 10;
@@ -1160,12 +1271,12 @@
             gap: 0.7rem;
         }
         .footer-links a {
-            color: #94a3b8;
+            color: var(--text-muted);
             text-decoration: none;
             font-size: 0.88rem;
             transition: color 0.2s ease;
         }
-        .footer-links a:hover { color: var(--gold-primary); }
+        .footer-links a:hover { color: var(--primary-accent); }
 
         .newsletter-input-group {
             display: flex;
@@ -1179,12 +1290,12 @@
             justify-content: space-between;
             align-items: center;
             font-size: 0.78rem;
-            color: #64748b;
+            color: var(--text-muted);
             flex-wrap: wrap;
             gap: 1rem;
         }
 
-        /* FLOATING WHATSAPP BUTTON */
+        /* FLOATING DIRECT WHATSAPP */
         .floating-chat-btn {
             position: fixed;
             bottom: 2rem;
@@ -1211,7 +1322,7 @@
         .modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(4, 6, 9, 0.88);
+            background: rgba(2, 6, 4, 0.88);
             backdrop-filter: blur(14px);
             z-index: 2000;
             display: flex;
@@ -1227,14 +1338,14 @@
             pointer-events: auto;
         }
         .ticket-modal-card {
-            background: #0d1117;
-            border: 2px solid var(--gold-primary);
+            background: #040c09;
+            border: 2px solid var(--primary-accent);
             border-radius: 28px;
             padding: 2.8rem;
             max-width: 580px;
             width: 100%;
             position: relative;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 50px rgba(245, 215, 140, 0.2);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 50px var(--glow-accent);
             text-align: center;
             transform: scale(0.92) translateY(20px);
             transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -1258,8 +1369,8 @@
             justify-content: center;
         }
         .ticket-inner {
-            background: linear-gradient(135deg, rgba(245, 215, 140, 0.12), rgba(245, 215, 140, 0.02));
-            border: 1px dashed rgba(245, 215, 140, 0.4);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.01));
+            border: 1px dashed var(--border-accent);
             border-radius: 20px;
             padding: 2rem;
             margin: 1.5rem 0;
@@ -1269,7 +1380,7 @@
             font-family: 'Space Grotesk', monospace;
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--gold-primary);
+            color: var(--primary-accent);
             letter-spacing: 0.15em;
             margin: 0.8rem 0;
         }
@@ -1279,8 +1390,8 @@
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            background: #141b25;
-            border: 1px solid var(--border-gold);
+            background: #091a14;
+            border: 1px solid var(--border-accent);
             color: #ffffff;
             padding: 1rem 1.6rem;
             border-radius: 16px;
@@ -1298,7 +1409,7 @@
             opacity: 1;
         }
 
-        /* RESPONSIVE DESIGN */
+        /* RESPONSIVE */
         @media (max-width: 1024px) {
             .studio-card, .location-card, .calc-box, .footer-top {
                 grid-template-columns: 1fr;
@@ -1307,7 +1418,6 @@
         }
         @media (max-width: 860px) {
             .nav-links { display: none; }
-            .mobile-menu-btn { display: block; }
             .form-grid { grid-template-columns: 1fr; }
             .hero-card { padding: 2.5rem 1.5rem; }
             .studio-card { padding: 1.8rem; }
@@ -1319,6 +1429,11 @@
             }
             .circle-svg { display: none; }
             .calc-box, .vip-form-box { padding: 2rem 1.4rem; }
+            .floating-palette-bar {
+                bottom: 5.5rem;
+                right: 1rem;
+                padding: 0.4rem 0.8rem;
+            }
         }
     </style>
 </head>
@@ -1358,7 +1473,15 @@
                 </ul>
 
                 <div class="nav-controls">
-                    <!-- Dynamic Currency Switcher -->
+                    <!-- Live Theme Switcher Pill in Navbar -->
+                    <div class="theme-selector-pill" title="Choose Luxury Color Aesthetic">
+                        <div class="theme-dot dot-emerald active" onclick="setTheme('emerald')" title="Imperial Emerald Noir"></div>
+                        <div class="theme-dot dot-copper" onclick="setTheme('copper')" title="Sunset Obsidian & Molten Copper"></div>
+                        <div class="theme-dot dot-amethyst" onclick="setTheme('amethyst')" title="Royal Amethyst & Silk Rose"></div>
+                        <div class="theme-dot dot-glacier" onclick="setTheme('glacier')" title="Cyber Glacier & Electric Cyan"></div>
+                    </div>
+
+                    <!-- Currency Switcher -->
                     <select class="currency-select" id="currencySelector" title="Select Currency">
                         <option value="INR">₹ INR (Cr)</option>
                         <option value="USD">$ USD (M)</option>
@@ -1378,12 +1501,19 @@
                     <a href="#vip" class="btn btn-gold" style="padding: 0.65rem 1.4rem; font-size: 0.82rem;">
                         VIP Allocation
                     </a>
-
-                    <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
                 </div>
             </div>
         </div>
     </header>
+
+    <!-- FLOATING LIVE COLOR PALETTE STUDIO SWITCHER -->
+    <div class="floating-palette-bar">
+        <span class="palette-label">🎨 Palette:</span>
+        <div class="theme-dot dot-emerald" onclick="setTheme('emerald')" title="Emerald Obsidian"></div>
+        <div class="theme-dot dot-copper" onclick="setTheme('copper')" title="Sunset Molten Copper"></div>
+        <div class="theme-dot dot-amethyst" onclick="setTheme('amethyst')" title="Royal Amethyst"></div>
+        <div class="theme-dot dot-glacier" onclick="setTheme('glacier')" title="Glacier Cyan"></div>
+    </div>
 
     <!-- SECTION 1: HERO & LIVE COUNTDOWN TIMER -->
     <section class="hero-section" id="countdown">
@@ -1402,13 +1532,13 @@
                     Official launch countdown has commenced.
                 </p>
 
-                <!-- SVG Gradient Definition -->
+                <!-- SVG Gradient Definition for Dynamic Circles -->
                 <svg width="0" height="0" style="position: absolute;">
                     <defs>
-                        <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#fff5db" />
-                            <stop offset="50%" stop-color="#f5d78c" />
-                            <stop offset="100%" stop-color="#d49b38" />
+                        <linearGradient id="themeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop id="gradStop1" offset="0%" stop-color="#a7f3d0" />
+                            <stop id="gradStop2" offset="50%" stop-color="#10b981" />
+                            <stop id="gradStop3" offset="100%" stop-color="#059669" />
                         </linearGradient>
                     </defs>
                 </svg>
@@ -1464,7 +1594,7 @@
                 <div class="hype-panel">
                     <div class="hype-info">
                         <span>🔥 Market Hype Level</span>
-                        <span id="hypePercentNum" style="color: var(--gold-primary);">88%</span>
+                        <span id="hypePercentNum" style="color: var(--primary-accent);">88%</span>
                     </div>
                     <div class="hype-meter-bar">
                         <div class="hype-meter-fill" id="hypeFill" style="width: 88%;"></div>
@@ -1542,49 +1672,44 @@
             <div class="studio-card">
                 
                 <div class="plan-visual-wrap">
-                    <!-- SVG ARCHITECTURAL BLUEPRINT -->
                     <svg class="plan-svg" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Structural Outer Walls -->
-                        <rect x="30" y="30" width="540" height="340" rx="12" stroke="rgba(245, 215, 140, 0.4)" stroke-width="3" stroke-dasharray="8 4" fill="rgba(14, 19, 28, 0.8)"/>
+                        <rect x="30" y="30" width="540" height="340" rx="12" stroke="var(--primary-accent)" stroke-width="2.5" stroke-dasharray="8 4" fill="rgba(2, 8, 6, 0.85)"/>
                         
-                        <!-- Internal Partitions -->
                         <line x1="240" y1="30" x2="240" y2="370" stroke="rgba(255, 255, 255, 0.15)" stroke-width="2"/>
                         <line x1="240" y1="200" x2="570" y2="200" stroke="rgba(255, 255, 255, 0.15)" stroke-width="2"/>
                         <line x1="420" y1="200" x2="420" y2="370" stroke="rgba(255, 255, 255, 0.15)" stroke-width="2"/>
                         
-                        <!-- Balcony Curve -->
-                        <path d="M30 100 Q10 200 30 300" stroke="var(--gold-primary)" stroke-width="2.5" fill="none"/>
+                        <path d="M30 100 Q10 200 30 300" stroke="var(--primary-accent)" stroke-width="2.5" fill="none"/>
 
-                        <!-- Room Labels -->
-                        <text x="135" y="190" fill="#94a3b8" font-size="13" font-family="'Plus Jakarta Sans', sans-serif" text-anchor="middle" font-weight="600">GRAND SKY SALON</text>
-                        <text x="330" y="115" fill="#94a3b8" font-size="13" font-family="'Plus Jakarta Sans', sans-serif" text-anchor="middle" font-weight="600">MASTER SANCTUARY</text>
-                        <text x="495" y="285" fill="#94a3b8" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" text-anchor="middle" font-weight="600">CHEF'S KITCHEN</text>
-                        <text x="330" y="285" fill="#94a3b8" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" text-anchor="middle" font-weight="600">PRIVATE SPA POOL</text>
+                        <text x="135" y="190" fill="var(--text-muted)" font-size="13" font-family="'Plus Jakarta Sans', sans-serif" text-anchor="middle" font-weight="600">GRAND SKY SALON</text>
+                        <text x="330" y="115" fill="var(--text-muted)" font-size="13" font-family="'Plus Jakarta Sans', sans-serif" text-anchor="middle" font-weight="600">MASTER SANCTUARY</text>
+                        <text x="495" y="285" fill="var(--text-muted)" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" text-anchor="middle" font-weight="600">CHEF'S KITCHEN</text>
+                        <text x="330" y="285" fill="var(--text-muted)" font-size="12" font-family="'Plus Jakarta Sans', sans-serif" text-anchor="middle" font-weight="600">PRIVATE SPA POOL</text>
 
-                        <!-- INTERACTIVE HOTSPOTS -->
+                        <!-- HOTSPOTS -->
                         <g class="hotspot-dot" onclick="showHotspot('Grand Sky Salon', 'Double-height 28ft ceilings with floor-to-ceiling acoustic glass wall opening to sunrise horizon.')">
-                            <circle class="outer" cx="135" cy="210" r="10" stroke="var(--gold-primary)" stroke-width="2" fill="none"/>
-                            <circle class="inner" cx="135" cy="210" r="5" fill="var(--gold-primary)"/>
+                            <circle class="outer" cx="135" cy="210" r="10" stroke="var(--primary-accent)" stroke-width="2" fill="none"/>
+                            <circle class="inner" cx="135" cy="210" r="5" fill="var(--primary-accent)"/>
                         </g>
 
                         <g class="hotspot-dot" onclick="showHotspot('Master Suite Sanctuary', '1,200 sq.ft private suite with dual walk-in dressing galleries and heated Italian marble tub.')">
-                            <circle class="outer" cx="330" cy="135" r="10" stroke="var(--gold-primary)" stroke-width="2" fill="none"/>
-                            <circle class="inner" cx="330" cy="135" r="5" fill="var(--gold-primary)"/>
+                            <circle class="outer" cx="330" cy="135" r="10" stroke="var(--primary-accent)" stroke-width="2" fill="none"/>
+                            <circle class="inner" cx="330" cy="135" r="5" fill="var(--primary-accent)"/>
                         </g>
 
                         <g class="hotspot-dot" onclick="showHotspot('Private Plunge Pool', 'Heated private cantilevered pool extending 12 feet beyond the structural perimeter.')">
-                            <circle class="outer" cx="330" cy="305" r="10" stroke="var(--gold-primary)" stroke-width="2" fill="none"/>
-                            <circle class="inner" cx="330" cy="305" r="5" fill="var(--gold-primary)"/>
+                            <circle class="outer" cx="330" cy="305" r="10" stroke="var(--primary-accent)" stroke-width="2" fill="none"/>
+                            <circle class="inner" cx="330" cy="305" r="5" fill="var(--primary-accent)"/>
                         </g>
 
                         <g class="hotspot-dot" onclick="showHotspot('Biometric Lift Lobby', 'Direct-to-residence private dual high-speed elevators with facial recognition.')">
-                            <circle class="outer" cx="240" cy="80" r="10" stroke="#38bdf8" stroke-width="2" fill="none"/>
-                            <circle class="inner" cx="240" cy="80" r="5" fill="#38bdf8"/>
+                            <circle class="outer" cx="240" cy="80" r="10" stroke="var(--contrast-accent)" stroke-width="2" fill="none"/>
+                            <circle class="inner" cx="240" cy="80" r="5" fill="var(--contrast-accent)"/>
                         </g>
                     </svg>
 
                     <div class="hotspot-tooltip" id="blueprintTooltip">
-                        <strong id="tooltipTitle" style="color: var(--gold-primary); display: block; margin-bottom: 2px;"></strong>
+                        <strong id="tooltipTitle" style="color: var(--primary-accent); display: block; margin-bottom: 2px;"></strong>
                         <span id="tooltipDesc"></span>
                     </div>
                 </div>
@@ -1716,7 +1841,7 @@
         </div>
     </section>
 
-    <!-- SECTION 5: SNEAK PEEK & ARCHITECTURAL GALLERY -->
+    <!-- SECTION 5: GALLERY -->
     <section class="section-padding gallery-section" id="gallery">
         <div class="container">
             <div class="badge-pill">Virtual Showcase</div>
@@ -1735,7 +1860,7 @@
             <div class="gallery-grid" id="galleryGrid">
                 
                 <div class="gallery-card" data-category="exterior" onclick="previewImage('The Golden Twilight Facade', 'Architectural lighting system choreographed with dusk skyline.')">
-                    <div class="gallery-card-bg" style="background-image: radial-gradient(circle at 50% 50%, #202b3c, #090e16); background-color: #111827;"></div>
+                    <div class="gallery-card-bg" style="background: radial-gradient(circle at 50% 50%, rgba(16,185,129,0.25), #020705);"></div>
                     <div class="gallery-overlay">
                         <span class="gallery-badge">Architectural Facade</span>
                         <h4 class="gallery-item-title">Tower Exterior at Twilight</h4>
@@ -1743,7 +1868,7 @@
                 </div>
 
                 <div class="gallery-card" data-category="interior" onclick="previewImage('The Grand Double-Height Salon', 'Featuring 28ft ceilings and floor-to-ceiling Italian marble.')">
-                    <div class="gallery-card-bg" style="background-image: radial-gradient(circle at 30% 40%, #3a3224, #0b0f17); background-color: #111827;"></div>
+                    <div class="gallery-card-bg" style="background: radial-gradient(circle at 30% 40%, rgba(251,113,133,0.2), #030a08);"></div>
                     <div class="gallery-overlay">
                         <span class="gallery-badge">Interior Marvel</span>
                         <h4 class="gallery-item-title">Grand Salon & Living Lounge</h4>
@@ -1751,7 +1876,7 @@
                 </div>
 
                 <div class="gallery-card" data-category="amenities" onclick="previewImage('Cantilevered Sky Pool', 'Suspended glass bottom pool offering views of the city below.')">
-                    <div class="gallery-card-bg" style="background-image: radial-gradient(circle at 70% 30%, #1e3a5f, #070a10); background-color: #111827;"></div>
+                    <div class="gallery-card-bg" style="background: radial-gradient(circle at 70% 30%, rgba(6,182,212,0.25), #020608);"></div>
                     <div class="gallery-overlay">
                         <span class="gallery-badge">Sky Amenities</span>
                         <h4 class="gallery-item-title">Level 54 Horizon Infinity Pool</h4>
@@ -1759,7 +1884,7 @@
                 </div>
 
                 <div class="gallery-card" data-category="interior" onclick="previewImage('Master Suite Sanctuary', 'Custom walk-in closet and freestanding marble soaking bath.')">
-                    <div class="gallery-card-bg" style="background-image: radial-gradient(circle at 40% 60%, #30261a, #0d121c); background-color: #111827;"></div>
+                    <div class="gallery-card-bg" style="background: radial-gradient(circle at 40% 60%, rgba(192,132,252,0.2), #06020c);"></div>
                     <div class="gallery-overlay">
                         <span class="gallery-badge">Interior Marvel</span>
                         <h4 class="gallery-item-title">Master Bedroom Sanctuary</h4>
@@ -1767,7 +1892,7 @@
                 </div>
 
                 <div class="gallery-card" data-category="exterior" onclick="previewImage('Rooftop Heliport & Observation Deck', 'Unobstructed 360-degree panorama of the national capital.')">
-                    <div class="gallery-card-bg" style="background-image: radial-gradient(circle at 60% 30%, #252b36, #090d15); background-color: #111827;"></div>
+                    <div class="gallery-card-bg" style="background: radial-gradient(circle at 60% 30%, rgba(249,115,22,0.2), #070402);"></div>
                     <div class="gallery-overlay">
                         <span class="gallery-badge">Crown Feature</span>
                         <h4 class="gallery-item-title">Helipad & Sky Observation</h4>
@@ -1775,7 +1900,7 @@
                 </div>
 
                 <div class="gallery-card" data-category="amenities" onclick="previewImage('Private Cigar & Whiskey Lounge', 'Leather armchairs, cedar humidor, and custom cocktail bar.')">
-                    <div class="gallery-card-bg" style="background-image: radial-gradient(circle at 50% 50%, #35281a, #080a0f); background-color: #111827;"></div>
+                    <div class="gallery-card-bg" style="background: radial-gradient(circle at 50% 50%, rgba(52,211,153,0.2), #030806);"></div>
                     <div class="gallery-overlay">
                         <span class="gallery-badge">Social Elegance</span>
                         <h4 class="gallery-item-title">Resident's Private Cigar Lounge</h4>
@@ -1808,7 +1933,7 @@
                                 <span style="font-size: 1.2rem;">✈️</span>
                                 <div>
                                     <strong style="color: #ffffff; display: block; font-size: 0.95rem;">International Airport (T3)</strong>
-                                    <span style="font-size: 0.78rem; color: #94a3b8;">Direct Signal-Free Expressway</span>
+                                    <span style="font-size: 0.78rem; color: var(--text-muted);">Direct Signal-Free Expressway</span>
                                 </div>
                             </div>
                             <span class="commute-time">14 Mins</span>
@@ -1819,7 +1944,7 @@
                                 <span style="font-size: 1.2rem;">🏛️</span>
                                 <div>
                                     <strong style="color: #ffffff; display: block; font-size: 0.95rem;">Central Business & Financial Hub</strong>
-                                    <span style="font-size: 0.78rem; color: #94a3b8;">Cyber City / Executive Parks</span>
+                                    <span style="font-size: 0.78rem; color: var(--text-muted);">Cyber City / Executive Parks</span>
                                 </div>
                             </div>
                             <span class="commute-time">08 Mins</span>
@@ -1830,7 +1955,7 @@
                                 <span style="font-size: 1.2rem;">⛳</span>
                                 <div>
                                     <strong style="color: #ffffff; display: block; font-size: 0.95rem;">18-Hole Championship Golf Course</strong>
-                                    <span style="font-size: 0.78rem; color: #94a3b8;">Exclusive Country Club</span>
+                                    <span style="font-size: 0.78rem; color: var(--text-muted);">Exclusive Country Club</span>
                                 </div>
                             </div>
                             <span class="commute-time">04 Mins</span>
@@ -1841,7 +1966,7 @@
                                 <span style="font-size: 1.2rem;">🏥</span>
                                 <div>
                                     <strong style="color: #ffffff; display: block; font-size: 0.95rem;">Super-Specialty Medicity & JCI Hospital</strong>
-                                    <span style="font-size: 0.78rem; color: #94a3b8;">24/7 Trauma & Wellness Center</span>
+                                    <span style="font-size: 0.78rem; color: var(--text-muted);">24/7 Trauma & Wellness Center</span>
                                 </div>
                             </div>
                             <span class="commute-time">06 Mins</span>
@@ -1849,7 +1974,6 @@
                     </div>
                 </div>
 
-                <!-- Stylized Radar Map Visual -->
                 <div class="map-interactive-view">
                     <div class="map-radar"></div>
                     <div class="map-radar" style="animation-delay: 2s;"></div>
@@ -1879,7 +2003,7 @@
                     <div class="slider-group">
                         <div class="slider-label">
                             <span>Residences Configuration</span>
-                            <strong id="calcUnitLabel" style="color: var(--gold-primary);">4 BHK Sky Suite</strong>
+                            <strong id="calcUnitLabel" style="color: var(--primary-accent);">4 BHK Sky Suite</strong>
                         </div>
                         <input type="range" class="slider-input" id="calcUnitSlider" min="0" max="2" value="0" oninput="updateCalculator()">
                     </div>
@@ -1887,7 +2011,7 @@
                     <div class="slider-group">
                         <div class="slider-label">
                             <span>Down Payment Allocation (%)</span>
-                            <strong id="calcDownLabel" style="color: var(--gold-primary);">20%</strong>
+                            <strong id="calcDownLabel" style="color: var(--primary-accent);">20%</strong>
                         </div>
                         <input type="range" class="slider-input" id="calcDownSlider" min="10" max="50" step="5" value="20" oninput="updateCalculator()">
                     </div>
@@ -1895,7 +2019,7 @@
                     <div class="slider-group">
                         <div class="slider-label">
                             <span>Holding Horizon (Years)</span>
-                            <strong id="calcYearsLabel" style="color: var(--gold-primary);">3 Years</strong>
+                            <strong id="calcYearsLabel" style="color: var(--primary-accent);">3 Years</strong>
                         </div>
                         <input type="range" class="slider-input" id="calcYearsSlider" min="1" max="5" value="3" oninput="updateCalculator()">
                     </div>
@@ -1914,7 +2038,7 @@
 
                     <div class="res-row">
                         <div class="res-label">Estimated Horizon Valuation</div>
-                        <div class="res-value gold" id="calcProjectedVal">₹ 25.80 Cr</div>
+                        <div class="res-value accent" id="calcProjectedVal">₹ 25.80 Cr</div>
                     </div>
 
                     <a href="#vip" class="btn btn-gold" style="width: 100%; margin-top: 1rem;">
@@ -1987,7 +2111,7 @@
         </div>
     </section>
 
-    <!-- SECTION 9: LAUNCH FAQ ACCORDION -->
+    <!-- SECTION 9: LAUNCH FAQ -->
     <section class="section-padding faq-section" id="faq">
         <div class="container">
             <div class="badge-pill">Clarifications</div>
@@ -2068,7 +2192,7 @@
                             <span class="brand-tag">Crown Residences</span>
                         </div>
                     </div>
-                    <p style="font-size: 0.88rem; color: #94a3b8; max-width: 320px; line-height: 1.6;">
+                    <p style="font-size: 0.88rem; color: var(--text-muted); max-width: 320px; line-height: 1.6;">
                         A joint venture of celebrated international architectural firms and premier ultra-luxury master developers.
                     </p>
                 </div>
@@ -2097,7 +2221,7 @@
 
                 <div class="footer-col">
                     <h4>Confidential Briefing</h4>
-                    <p style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 0.8rem;">
+                    <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.8rem;">
                         Subscribe for confidential price sheet updates and construction drone footage.
                     </p>
                     <div class="newsletter-input-group">
@@ -2114,7 +2238,7 @@
         </div>
     </footer>
 
-    <!-- FLOATING DIRECT WHATSAPP BUTTON -->
+    <!-- FLOATING WHATSAPP -->
     <a href="https://api.whatsapp.com/send?text=Hello,%20I%20would%20like%20to%20inquire%20about%20the%20AURA%20VISTA%20pre-launch%20allocation." target="_blank" class="floating-chat-btn" title="Direct WhatsApp Inquiries">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.983.538 1.897.822 2.791.822 3.18 0 5.767-2.587 5.767-5.766.001-3.181-2.584-5.768-5.767-5.768zm0 10.385c-.818 0-1.637-.246-2.341-.699l-.167-.107-1.745.457.466-1.701-.11-.176a4.57 4.57 0 0 1-.703-2.393c.001-2.528 2.057-4.584 4.59-4.584 2.531 0 4.587 2.056 4.588 4.584 0 2.528-2.056 4.584-4.579 4.584z"/>
@@ -2129,31 +2253,30 @@
             <h3 style="font-family: 'Cinzel', serif; font-size: 1.8rem; color: #ffffff; margin-bottom: 0.3rem;">
                 Golden VIP Invitation Card
             </h3>
-            <p style="font-size: 0.85rem; color: #94a3b8;">
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
                 Your allocation request is acknowledged. Present this pass during your private gallery preview.
             </p>
 
             <div class="ticket-inner">
-                <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--gold-primary);">
+                <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--primary-accent);">
                     Priority Pass Holder
                 </div>
                 <h4 id="passHolderName" style="font-size: 1.5rem; color: #ffffff; margin: 0.4rem 0;">VIKRAMADITYA SINGHANIA</h4>
                 <div class="ticket-code" id="passCode">AV-VIP-8492</div>
                 
-                <div style="display: flex; justify-content: space-around; margin-top: 1rem; border-top: 1px dashed rgba(245, 215, 140, 0.2); padding-top: 1rem;">
+                <div style="display: flex; justify-content: space-around; margin-top: 1rem; border-top: 1px dashed var(--border-accent); padding-top: 1rem;">
                     <div>
-                        <div style="font-size: 0.68rem; color: #94a3b8; text-transform: uppercase;">Selected Unit</div>
+                        <div style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase;">Selected Unit</div>
                         <div style="font-size: 0.88rem; font-weight: 700; color: #ffffff;" id="passUnit">4 BHK Sky Suite</div>
                     </div>
                     <div>
-                        <div style="font-size: 0.68rem; color: #94a3b8; text-transform: uppercase;">Allocation Status</div>
-                        <div style="font-size: 0.88rem; font-weight: 700; color: #34d399;">VIP Priority Tier 1</div>
+                        <div style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase;">Allocation Status</div>
+                        <div style="font-size: 0.88rem; font-weight: 700; color: var(--primary-accent);">VIP Priority Tier 1</div>
                     </div>
                 </div>
 
-                <!-- Stylized Barcode SVG -->
                 <div style="margin-top: 1.2rem; display: flex; justify-content: center;">
-                    <svg width="220" height="36" viewBox="0 0 220 36" fill="var(--gold-primary)">
+                    <svg width="220" height="36" viewBox="0 0 220 36" fill="var(--primary-accent)">
                         <rect x="0" y="0" width="3" height="36"/>
                         <rect x="6" y="0" width="6" height="36"/>
                         <rect x="16" y="0" width="2" height="36"/>
@@ -2197,14 +2320,59 @@
 
     <!-- TOAST NOTIFICATION -->
     <div class="toast-bubble" id="toast">
-        <span style="color: #34d399; font-size: 1.2rem;">✓</span>
+        <span style="color: var(--primary-accent); font-size: 1.2rem;">✓</span>
         <span id="toastMsg">Action completed.</span>
     </div>
 
-    <!-- JAVASCRIPT CONTROLLER -->
+    <!-- JAVASCRIPT LOGIC -->
     <script>
         (function() {
-            // TARGET COUNTDOWN: Exactly 35 Days, 18 Hours, 30 Minutes from current time
+            // THEME DEFINITIONS
+            const themeConfigs = {
+                emerald: {
+                    name: 'Imperial Emerald',
+                    gradientStops: ['#a7f3d0', '#10b981', '#059669'],
+                    particleRgb: '16, 185, 129'
+                },
+                copper: {
+                    name: 'Sunset Obsidian & Copper',
+                    gradientStops: ['#fdba74', '#f97316', '#c2410c'],
+                    particleRgb: '249, 115, 22'
+                },
+                amethyst: {
+                    name: 'Royal Amethyst & Silk',
+                    gradientStops: ['#e9d5ff', '#c084fc', '#7e22ce'],
+                    particleRgb: '192, 132, 252'
+                },
+                glacier: {
+                    name: 'Cyber Glacier & Cyan',
+                    gradientStops: ['#a5f3fc', '#06b6d4', '#0e7490'],
+                    particleRgb: '6, 182, 212'
+                }
+            };
+            let currentTheme = 'emerald';
+
+            window.setTheme = function(themeKey) {
+                if (!themeConfigs[themeKey]) return;
+                currentTheme = themeKey;
+                document.documentElement.setAttribute('data-theme', themeKey);
+
+                // Update active state in theme dots
+                document.querySelectorAll('.theme-dot').forEach(dot => {
+                    dot.classList.toggle('active', dot.classList.contains(`dot-${themeKey}`));
+                });
+
+                // Update SVG gradient stops
+                const stops = themeConfigs[themeKey].gradientStops;
+                document.getElementById('gradStop1').setAttribute('stop-color', stops[0]);
+                document.getElementById('gradStop2').setAttribute('stop-color', stops[1]);
+                document.getElementById('gradStop3').setAttribute('stop-color', stops[2]);
+
+                playChime(660);
+                showToast(`🎨 Aesthetic updated: ${themeConfigs[themeKey].name}`);
+            };
+
+            // TARGET COUNTDOWN: Exactly 35 Days, 18 Hours, 30 Minutes
             const now = new Date();
             const launchDate = new Date(now.getTime() + (35 * 24 * 60 * 60 * 1000) + (18 * 60 * 60 * 1000) + (30 * 60 * 1000));
 
@@ -2218,7 +2386,7 @@
             const barMins = document.getElementById('barMins');
             const barSecs = document.getElementById('barSecs');
 
-            const CIRCLE_LEN = 2 * Math.PI * 54; // ~339.29
+            const CIRCLE_LEN = 2 * Math.PI * 54;
             [barDays, barHours, barMins, barSecs].forEach(b => {
                 if (b) b.style.strokeDasharray = CIRCLE_LEN;
             });
@@ -2253,7 +2421,7 @@
             tickCountdown();
             setInterval(tickCountdown, 1000);
 
-            // AUDIO SYNTHESIS VIA WEB AUDIO API
+            // AUDIO SYNTHESIS
             let audioCtx = null;
             let isMuted = false;
 
@@ -2285,7 +2453,7 @@
             soundToggle.addEventListener('click', () => {
                 isMuted = !isMuted;
                 if (!isMuted) {
-                    soundToggle.style.color = '#f5d78c';
+                    soundToggle.style.color = 'var(--primary-accent)';
                     showToast('Audio Atmosphere Enabled 🔔');
                     playChime(659);
                 } else {
@@ -2311,9 +2479,8 @@
 
                 playChime(850 + (hypeClicks % 8) * 30);
 
-                // Spawn floating emoji
                 const rect = boostBtn.getBoundingClientRect();
-                const icons = ['🔥', '✨', '⚡', '💎', '🚀'];
+                const icons = ['🔥', '✨', '⚡', '💎', '🚀', '🌿'];
                 const icon = icons[Math.floor(Math.random() * icons.length)];
 
                 const el = document.createElement('div');
@@ -2438,9 +2605,8 @@
                 document.getElementById('calcDownLabel').textContent = `${downPercent}%`;
                 document.getElementById('calcYearsLabel').textContent = `${years} Year${years > 1 ? 's' : ''}`;
 
-                // Calculations
-                const savings = basePrice * 0.12; // 12% pre-launch concession
-                const annualAppreciation = 0.115; // 11.5% CAGR
+                const savings = basePrice * 0.12;
+                const annualAppreciation = 0.115;
                 const futureVal = basePrice * Math.pow(1 + annualAppreciation, years);
 
                 document.getElementById('calcBaseVal').textContent = `${c.symbol}${basePrice.toFixed(2)}${c.suffix}`;
@@ -2465,7 +2631,7 @@
                 playChime(520);
             };
 
-            // VIP TICKET GENERATOR & CONFETTI
+            // VIP TICKET GENERATOR
             const vipTicketModal = document.getElementById('vipTicketModal');
             window.generateVipTicket = function(e) {
                 e.preventDefault();
@@ -2545,6 +2711,8 @@
 
             function animateBg() {
                 bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+                const rgb = themeConfigs[currentTheme] ? themeConfigs[currentTheme].particleRgb : '16, 185, 129';
+
                 particles.forEach(p => {
                     p.y -= p.vy;
                     p.x += p.vx;
@@ -2554,9 +2722,9 @@
 
                     bgCtx.beginPath();
                     bgCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                    bgCtx.fillStyle = `rgba(245, 215, 140, ${p.alpha})`;
+                    bgCtx.fillStyle = `rgba(${rgb}, ${p.alpha})`;
                     bgCtx.shadowBlur = 6;
-                    bgCtx.shadowColor = 'rgba(245, 215, 140, 0.4)';
+                    bgCtx.shadowColor = `rgba(${rgb}, 0.5)`;
                     bgCtx.fill();
                 });
                 requestAnimationFrame(animateBg);
@@ -2576,7 +2744,7 @@
             resizeConfetti();
 
             function triggerConfetti() {
-                const colors = ['#f5d78c', '#e6b450', '#ffffff', '#38bdf8', '#34d399'];
+                const colors = ['#10b981', '#34d399', '#ffffff', '#fb7185', '#f97316', '#c084fc', '#06b6d4'];
                 for (let i = 0; i < 90; i++) {
                     confetti.push({
                         x: window.innerWidth / 2,
